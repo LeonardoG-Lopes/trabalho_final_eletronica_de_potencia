@@ -28,6 +28,7 @@ t = np.arange(0, t_end, dt)
 iL = np.zeros_like(t)     # Corrente do indutor
 vO = np.zeros_like(t)   # Tensão do capacitor/saída
 
-
-
+# Condições iniciais
+iL[0] = 0.0
+vO[0] = 0.0
 
