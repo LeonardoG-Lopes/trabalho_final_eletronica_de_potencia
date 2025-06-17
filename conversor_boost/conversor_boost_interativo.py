@@ -3,13 +3,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 ## Definição dos parâmetros a partir das intenções de projeto
-Vin = 150.0           # Tensão de entrada (V)
-Vout = 350.0          # Tensão de saída (V)
-Pout = 1250.0         # Potência máxima na saída (W)
-Fs = 40e3             # Frequência de chaveamento (Hz)
-Ts = 1 / Fs           # Período de chaveamento (s)
-VIl = 0.2             # Ondulação da corrente no indutor (%)
-VVl = 0.01            # Ondulação da tensão no capacitor (%)
+Vin = float(input("Digite a tensão de entrada: "))                                  # Tensão de entrada (V)
+Vout = float(input("Digite a tensão de saída desejada: "))                          # Tensão de saída (V)
+Pout = float(input("Digite a potência máxima da saída: "))                          # Potência máxima na saída (W)
+Fs = 40e3                                                                           # Frequência de chaveamento (Hz)
+Ts = 1 / Fs                                                                         # Período de chaveamento (s)
+VIl = float(input("Digite a ondulação na corrente no indutor desejada: "))          # Ondulação da corrente no indutor (%)
+VVl = float(input("Digite a ondulação na tensão no capacitor desejada: "))          # Ondulação da tensão no capacitor (%)
 
 ## Cálculo dos valores nominais e dimensionameno de componentes
 D = (Vout - Vin)/Vout      # Razão Cíclica
@@ -52,7 +52,7 @@ for k in range(len(t) - 1):
 plt.figure(figsize=(10, 4))
 plt.plot(t * 1e3, vO, label='Tensão de Saída (vout)')
 plt.axhline(Vout, color='red', linestyle='--', label=f'Média Teórica = {Vout:.1f} V')
-plt.title('Resposta Transitória e Estabilização da Tensão de Saída (150 V → 350 V)')
+plt.title('Tensão de saída - Conversor Boost')
 plt.xlabel('Tempo (ms)')
 plt.ylabel('Tensão (V)')
 plt.grid(True)
